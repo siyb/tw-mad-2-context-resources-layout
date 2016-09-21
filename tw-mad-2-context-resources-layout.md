@@ -199,4 +199,129 @@ public class MyLeakActivity extends Activity {
         
 # Layouts
 
+## Layouts - 1 - Basics
+
+* Layouts define the UI part of Activities and Fragments
+* Pretty straight forward, but can be frustrating at times
+* This section provides a simple overview, the best way to get to know layouts is by learning and doing
+* There are two important super classes that the Android developer should know about
+    * View - something like a TextView, CheckBox, ImageView, basically, a simple widget
+    * ViewGroup - ViewGroup is yet another View (it extends the View class), but ViewGroups function as containers for other Views
+
+## Layouts - 2 - Basics cont.
+
+* Every View / ViewGroup can have attributes (XML)
+    * android:layout_width and android:layout_height are a necessity for all Views, if not specified, an Exception will be thrown during runtime
+    * Different values:
+        * match_parent – the View will get as big as allowed by it’s parent
+        * wrap_content – the View will size itself to the dimensions required by its content
+        * fill_parent – OBSOLETE, replaced by match_parent
+        * Any numeric value followed by a unit
+            * [http://developer.android.com/guide/topics/resources/more-resources.html#Dimension](http://developer.android.com/guide/topics/resources/more-resources.html#Dimension)
+        * TRY TO USE DISPLAY INDEPENDENT UNITS!
+        
+## Layouts - 3 - Basics cont.
+
+* Each View / ViewGroup can have an id, which can be used to access the View from within Java code or another XML resource
+* android:id=“@+id/thisismyid”
+    * In Java code: someViewGroup.findViewById(R.id.thisismyid);
+    * Unfortunately, this method isn’t exactly type safe :/
+    * It is customary to cast without checking the type
+        * TextView t = (TextView) someViewGroup 	.findViewById(R.id.thisismyid);
+    * There are some frameworks that make the whole view finding process a lot more pleasant (e.g. butterknife)
+* Note the @+ this means we are creating a resource
+* Do NOT add Ids to Views that you don’t want to reference
+
+## Layouts - 4 - LinearLayout
+
+![Resource Directories](./linearlayout.png)
+
+## Layouts - 5 - LinearLayout Explained
+
+* Can be either horizontal or vertical (as seen here)
+* Each added child will be added next or below the previous child (depending on orientation)
+* The height and width of each child view can also be determined by android:layout_weight
+
+## Layouts - 6 - RelativeLayout
+
+![Resource Directories](./relativelayout.png)
+
+## Layouts - 7 - RelativeLayout Explained
+
+* Used for more complex view hierarchies
+* Can replace nested LinearLayouts
+* Views are arranged by relations such as
+    * right/left of
+    * below/above
+    
+## Layouts - 8 - TableLayout
+
+![Resource Directories](./tablelayout.png)
+
+## Layouts - 9 - TableLayout Explained
+
+* Extends LinearLayout, but promotes a cleaner way to create tables by using rows and columns
+* As with LinearLayouts, the width and height can be determined by android:layout_weight
+    
+## Layouts - 10 - FrameLayout
+
+![Resource Directories](./framelayout.png)
+
+## Layouts - 11 - FrameLayout Explained
+
+* Designed to hold a single child View
+* Can hold more, but it’s hard to use FrameLayout correctly if multiple child views are held, since they tend to overlap (different displays)
+
+## Layouts - 12 - More ViewGroups
+
+* There are many more ViewGroups out there, but today is not the time and place to discuss them
+* We will hear of some other special ViewGroups later on, the AdapterViews
+
+## Layouts - 13 - Example
+
+```xml
+<?xml version="1.0" encoding="utf-8"?> 
+<RelativeLayout 
+  xmlns:android="http://schemas.android.com/apk/res/android" 
+  android:layout_width="match_parent" 
+  android:layout_height="match_parent" 
+  android:background="@android:color/black"> 
+  <TextView 
+    android:id="@+id/tv_widget_temp" 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black" 
+    android:layout_toRightOf="@+id/activity_myactivity_iv_animage" 
+    android:text="@string/activity_myactivity_somestring" 
+  />
+  <ImageView 
+    android:id="@+id/activity_myactivity_iv_animage" 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:src="@drawable/activity_myactivity_specialimage" 
+  /> 
+</RelativeLayout>
+```
+
+## Layouts - 14 - Example Explained
+
+* Simple RelativeLayout that displays an ImageView and a TextView
+* The TextView is “right of” the ImageView, but more detail of its position (e.g. vertical positioning) is not given
+* By using: android:layout_toRightOf="@+id/activity_myactivity_iv_animage“, we can actually refer to a View before it has been created, note the @+id
+
+## Layouts - 15 - Basic Views
+
+* All widgets below are Subclasses of TextView - can contain pictures
+    * Button : A simple button
+    * EditText: Input text field
+    * CheckBox: A check box (two states)
+    * RadioButton: A radiobutto
+    * ToggleButton: A toggle button, two states
+   * ImageView: What could that be?
+        * ImageButton - A button containing an Image
+    * ProgressBar - Progress bar
+    
+# Any Questions?
+
+
 
