@@ -156,7 +156,8 @@ public class MyLeakActivity extends Activity {
 ```xml
 <?xml version="1.0" encoding="utf-8"?> 
 <LinearLayout 
-  xmlns:android="http://schemas.android.com/apk/res/android" 
+  xmlns:android=
+    "http://schemas.android.com/apk/res/android" 
   android:layout_width="match_parent" 
   android:layout_height="match_parent" 
   android:orientation="vertical" > 
@@ -216,8 +217,7 @@ public class MyLeakActivity extends Activity {
         * match_parent – the View will get as big as allowed by it’s parent
         * wrap_content – the View will size itself to the dimensions required by its content
         * fill_parent – OBSOLETE, replaced by match_parent
-        * Any numeric value followed by a unit
-            * [http://developer.android.com/guide/topics/resources/more-resources.html#Dimension](http://developer.android.com/guide/topics/resources/more-resources.html#Dimension)
+        * Any numeric value followed by a unit:  [http://developer.android.com/guide/topics/resources/more-resources.html#Dimension](http://developer.android.com/guide/topics/resources/more-resources.html#Dimension)
         * TRY TO USE DISPLAY INDEPENDENT UNITS!
         
 ## Layouts - 3 - Basics cont.
@@ -282,7 +282,8 @@ public class MyLeakActivity extends Activity {
 ```xml
 <?xml version="1.0" encoding="utf-8"?> 
 <RelativeLayout 
-  xmlns:android="http://schemas.android.com/apk/res/android" 
+  xmlns:android=
+    "http://schemas.android.com/apk/res/android" 
   android:layout_width="match_parent" 
   android:layout_height="match_parent" 
   android:background="@android:color/black"> 
@@ -291,14 +292,26 @@ public class MyLeakActivity extends Activity {
     android:layout_width="wrap_content" 
     android:layout_height="wrap_content" 
     android:textColor="@android:color/black" 
-    android:layout_toRightOf="@+id/activity_myactivity_iv_animage" 
-    android:text="@string/activity_myactivity_somestring" 
+    android:layout_toRightOf=
+      "@+id/activity_myactivity_iv_animage" 
+    android:text=
+      "@string/activity_myactivity_somestring" 
   />
+  ...
+</RelativeLayout>
+```
+
+## Layouts - 13 - Example cont.
+
+```xml
+<RelativeLayout>
+  ...
   <ImageView 
     android:id="@+id/activity_myactivity_iv_animage" 
     android:layout_width="wrap_content" 
     android:layout_height="wrap_content" 
-    android:src="@drawable/activity_myactivity_specialimage" 
+    android:src=
+      "@drawable/activity_myactivity_specialimage" 
   /> 
 </RelativeLayout>
 ```
@@ -317,9 +330,9 @@ public class MyLeakActivity extends Activity {
     * CheckBox: A check box (two states)
     * RadioButton: A radiobutto
     * ToggleButton: A toggle button, two states
-   * ImageView: What could that be?
-        * ImageButton - A button containing an Image
-    * ProgressBar - Progress bar
+* ImageView: What could that be?
+    * ImageButton - A button containing an Image
+* ProgressBar - Progress bar
     
 # Any Questions?
 
