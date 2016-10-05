@@ -65,7 +65,7 @@ public class MyLeakActivity extends Activity {
 ## Context - 4 - Memory Leak Explained
 
 * An non static inner class saves an instance of the enclosing class
-    * Can be accessed using MyLeakActivity.this and NOT MyLeakActivity _this = this;
+    * Can be accessed using MyLeakActivity.this and NOT MyLeakActivity _this = this;
 * When the Activity is destroyed, the static instance of Evil is retained
     * Evil still holds a reference to MyLeakActivity -> MEMLEAK
 * Beware OC!
@@ -118,7 +118,7 @@ public class MyLeakActivity extends Activity {
 
 ## Providing Resources - 6 - Algorithm
 
-![Resource Directories](./resource_algorithm.png)
+![Resource Algorithm](./resource_algorithm.png)
 
 ## Providing Resources - 7 - Algorithm cont.
 
@@ -132,7 +132,7 @@ public class MyLeakActivity extends Activity {
 <?xml version="1.0" encoding="utf-8"?> 
 <resources> 
   <string name=“mystring">MyString</string> 
-   <string name=“mystring2">MyString2</string> 
+   <string name=“mystring2">MyString2</string> 
 </resources> 
 ```
 * This string resource file defines two strings that can be referred to by using mystring and mystring2 respectively
@@ -234,7 +234,7 @@ public class MyLeakActivity extends Activity {
 
 ## Layouts - 4 - LinearLayout
 
-![Resource Directories](./linearlayout.png)
+![LinearLayout](./linearlayout.png)
 
 ## Layouts - 5 - LinearLayout Explained
 
@@ -244,7 +244,7 @@ public class MyLeakActivity extends Activity {
 
 ## Layouts - 6 - RelativeLayout
 
-![Resource Directories](./relativelayout.png)
+![RelativeLayout](./relativelayout.png)
 
 ## Layouts - 7 - RelativeLayout Explained
 
@@ -256,7 +256,7 @@ public class MyLeakActivity extends Activity {
     
 ## Layouts - 8 - TableLayout
 
-![Resource Directories](./tablelayout.png)
+![TableLayout](./tablelayout.png)
 
 ## Layouts - 9 - TableLayout Explained
 
@@ -265,7 +265,7 @@ public class MyLeakActivity extends Activity {
     
 ## Layouts - 10 - FrameLayout
 
-![Resource Directories](./framelayout.png)
+![FrameLayout](./framelayout.png)
 
 ## Layouts - 11 - FrameLayout Explained
 
@@ -288,14 +288,14 @@ public class MyLeakActivity extends Activity {
   android:layout_height="match_parent" 
   android:background="@android:color/black"> 
   <TextView 
-    android:id="@+id/tv_widget_temp" 
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content" 
-    android:textColor="@android:color/black" 
-    android:layout_toRightOf=
-      "@+id/activity_myactivity_iv_animage" 
-    android:text=
-      "@string/activity_myactivity_somestring" 
+    android:id="@+id/tv_widget_temp" 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:textColor="@android:color/black" 
+    android:layout_toRightOf=
+      "@+id/activity_myactivity_iv_animage" 
+    android:text=
+      "@string/activity_myactivity_somestring" 
   />
   ...
 </RelativeLayout>
@@ -307,11 +307,11 @@ public class MyLeakActivity extends Activity {
 <RelativeLayout>
   ...
   <ImageView 
-    android:id="@+id/activity_myactivity_iv_animage" 
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content" 
-    android:src=
-      "@drawable/activity_myactivity_specialimage" 
+    android:id="@+id/activity_myactivity_iv_animage" 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:src=
+      "@drawable/activity_myactivity_specialimage" 
   /> 
 </RelativeLayout>
 ```
