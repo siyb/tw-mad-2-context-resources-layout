@@ -1,6 +1,6 @@
 % MAD - Android 2: Context, Resources & Layout
 % Patrick Sturm
-% 16.10.2017
+% 21.03.2018
 
 ## Information
 
