@@ -232,21 +232,36 @@ public class MyLeakActivity extends Activity {
 * Note the @+ this means we are creating a resource
 * Do NOT add Ids to Views that you don’t want to reference
 
-## Layouts - 4 - LinearLayout
+
+## Layouts - 4 - Constraintlayout
+
+![RelativeLayout](./relativelayout.png)
+
+## Layouts - 5 - ConstraintLayout Explained
+
+* Made for complex layouts
+* Flat hierarchy - fast rendering
+* Similar to ReleativeLayout, better Studio support
+* Studio supports migration of existing layouts!
+    * Dependency: com.android.support.constraint:constraint-layout:X.X.X
+* Each view MUST have horizontal and vertical constraints!
+* Special "id" - "parent", do not use match_parent, use 0dp instead (match_constraint)
+
+## Layouts - 6 - LinearLayout
 
 ![LinearLayout](./linearlayout.png)
 
-## Layouts - 5 - LinearLayout Explained
+## Layouts - 7 - LinearLayout Explained
 
 * Can be either horizontal or vertical (as seen here)
 * Each added child will be added next or below the previous child (depending on orientation)
 * The height and width of each child view can also be determined by android:layout_weight
 
-## Layouts - 6 - RelativeLayout
+## Layouts - 8 - RelativeLayout
 
 ![RelativeLayout](./relativelayout.png)
 
-## Layouts - 7 - RelativeLayout Explained
+## Layouts - 9 - RelativeLayout Explained
 
 * Used for more complex view hierarchies
 * Can replace nested LinearLayouts
@@ -254,30 +269,30 @@ public class MyLeakActivity extends Activity {
     * right/left of
     * below/above
     
-## Layouts - 8 - TableLayout
+## Layouts - 10 - TableLayout
 
 ![TableLayout](./tablelayout.png)
 
-## Layouts - 9 - TableLayout Explained
+## Layouts - 11 - TableLayout Explained
 
 * Extends LinearLayout, but promotes a cleaner way to create tables by using rows and columns
 * As with LinearLayouts, the width and height can be determined by android:layout_weight
     
-## Layouts - 10 - FrameLayout
+## Layouts - 12 - FrameLayout
 
 ![FrameLayout](./framelayout.png)
 
-## Layouts - 11 - FrameLayout Explained
+## Layouts - 13 - FrameLayout Explained
 
 * Designed to hold a single child View
 * Can hold more, but it’s hard to use FrameLayout correctly if multiple child views are held, since they tend to overlap (different displays)
 
-## Layouts - 12 - More ViewGroups
+## Layouts - 14 - More ViewGroups
 
 * There are many more ViewGroups out there, but today is not the time and place to discuss them
 * We will hear of some other special ViewGroups later on, the AdapterViews
 
-## Layouts - 13 - Example
+## Layouts - 15 - Example
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?> 
@@ -301,7 +316,7 @@ public class MyLeakActivity extends Activity {
 </RelativeLayout>
 ```
 
-## Layouts - 13 - Example cont.
+## Layouts - 16 - Example cont.
 
 ```xml
 <RelativeLayout>
@@ -316,13 +331,49 @@ public class MyLeakActivity extends Activity {
 </RelativeLayout>
 ```
 
-## Layouts - 14 - Example Explained
+## Layouts - 17 - Example Explained
 
 * Simple RelativeLayout that displays an ImageView and a TextView
 * The TextView is “right of” the ImageView, but more detail of its position (e.g. vertical positioning) is not given
 * By using: android:layout_toRightOf="@+id/activity_myactivity_iv_animage“, we can actually refer to a View before it has been created, note the @+id
 
-## Layouts - 15 - Basic Views
+
+## Layouts - 18 - Example Constraint
+
+```xml
+    <android.support.constraint.ConstraintLayout
+        xmlns:android=
+            "http://schemas.android.com/apk/res/android"
+        xmlns:app=
+           "http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="B1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+        />
+```
+
+## Layouts - 19 - Example ConstraintLayout cont.
+
+```xml
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="B2"
+            app:layout_constraintLeft_toLeftOf=
+                "@+id/button1"
+            app:layout_constraintTop_toBottomOf=
+                "@+id/button1"/>
+    </android.support.constraint.ConstraintLayout>
+```
+
+## Layouts - 20 - Basic Views
 
 * All widgets below are Subclasses of TextView - can contain pictures
     * Button : A simple button
